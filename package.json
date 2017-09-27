@@ -1,0 +1,14 @@
+{
+  "name": "hogan-super-partials",
+  "version": "1.0.0",
+  "description": "Hogan super partials exemple - documentation",
+  "main": "hogan-super-partials.js",
+  "scripts": {
+    "start": "node hogan-super-partials.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve-me": "^0.8.3"
+  }
+}

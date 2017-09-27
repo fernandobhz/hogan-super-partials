@@ -1,0 +1,26 @@
+{{< modelo }}
+
+	{{$ header }}
+		Person in database
+	{{/ header }}
+
+	{{$ content }}
+		<h3><center id="person">Person</center><h3>
+		<hr>		
+		<p>Name<br>{{name}}</p>
+		<p>Age<br>{{age}}</p>
+				
+		<p>
+			Friend<br>
+			
+			{{# friends }}				
+				{{.}}<br>
+			{{/ friends }}
+		</p>
+	{{/ content }}
+
+	{{$ footer }}
+		End listing persons
+	{{/ footer }}
+
+{{/ modelo }}

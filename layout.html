@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>console.log('I am in layout.html');</script>	
+</head>
+<body>
+<div class="header">
+	<h1>
+		<center>
+			{{$ header }}
+				Header
+			{{/ header }}
+		</center>
+	<h1>	
+</div>	
+	<div class="menu"></div>		
+	<div class="content">
+		{{$ content }}{{/ content }}
+	</div>
+	<div style="clear: both"></div>
+<div class="footer">
+	<h1>
+		<center>
+			{{$ footer }}
+				Footer
+			{{/ footer}}
+		</center>
+	</h1>	
+</div>
+</body>
+</html>

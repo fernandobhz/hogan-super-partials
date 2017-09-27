@@ -1,0 +1,25 @@
+{{< modelo }}
+
+	{{$ header }}
+	{{/ header }}
+
+	{{$ content }}
+		<h3><center>Company</center><h3>
+		<hr>
+		
+		<p>Name<br>{{name}}</p>
+		<p>Foundation<br>{{foundation}}</p>
+				
+		<p>
+			Products<br>
+			
+			{{# products }}				
+				{{.}}<br>
+			{{/ products }}
+		</p>
+	{{/ content }}
+
+	{{$ footer }}		
+	{{/ footer }}
+
+{{/ modelo }}
