@@ -1,5 +1,5 @@
 {
-	name: 'Fernando Reis Guimaraes <fernando@agoge.com.br>',
-	age: 31,
-	friends: ['Ronald', 'Charles']
+	"name": "Fernando Reis Guimaraes <fernando@agoge.com.br>",
+	"age": 31,
+	"friends": ["Ronald", "Charles"]
 }
