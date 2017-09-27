@@ -34,15 +34,15 @@
 			});
 
 			router.on('/person', function () {			
-				root.innerHTML = personTemplate.render(Contexts.fernando, Templates);
+				root.innerHTML = Templates.person.render(Contexts.fernando, Templates);
 			});
 
 			router.on('/company', function () {
-				root.innerHTML = "company";
+				root.innerHTML = Templates.company.render(Contexts.agoge, Templates);
 			});
 
 			router.on('/employee', function () {
-				root.innerHTML = "employee";
+				root.innerHTML = Templates.employee.render(Contexts.dexter, Templates);
 			});
 		});
 	</script>
