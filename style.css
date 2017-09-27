@@ -1,1 +1,27 @@
-color: red
+body > div {
+	margin: 10px;
+}
+
+.menu {
+	border: 1px solid red;
+	width: 23%;
+	height: 70vh;
+	float: left;
+}
+
+.content {
+	border: 1px solid blue;
+	width: 73%;
+	height: 70vh;
+	float: right;
+}
+
+.header {
+	border: 1px solid black;
+	height: 10vh;
+}
+
+.footer {
+	border: 1px solid black;
+	height: 10vh;
+}

@@ -5,89 +5,50 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<link rel="shortcut icon" href="#" />
 
-	<style>
-		body > div {
-			margin: 10px;
-		}
-
-		.menu {
-			border: 1px solid red;
-			width: 23%;
-			height: 70vh;
-			float: left;
-		}
-
-		.content {
-			border: 1px solid blue;
-			width: 73%;
-			height: 70vh;
-			float: right;
-		}
-
-		.header {
-			border: 1px solid black;
-			height: 10vh;
-		}
-
-		.footer {
-			border: 1px solid black;
-			height: 10vh;
-		}
-	</style>
-	<script src="http://twitter.github.com/hogan.js/builds/3.0.1/hogan-3.0.1.js"></script>
-	<script src="https://rawgit.com/flatiron/director/master/build/director.min.js"></script>
-
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://rawgit.com/flatiron/director/master/build/director.min.js"></script>
+	<script src="http://twitter.github.com/hogan.js/builds/3.0.1/hogan-3.0.1.js"></script>
+	<script src="fetch-templates.js"></script>
+	<script src="fetch-jsons.js"></script>
+	<script>
+		var Templates = {};
+		var Contexts = {};
+		var Promises = [];
+
+		Promises.push(FetchTemplates('layout', 'person', 'company', 'employee').then(function(tpls) {
+			Templates = tpls;
+		}));
+
+		Promises.push(FetchJsons('fernando', 'agoge', 'dexter').then(function(ctxs) {
+			Contexts = ctxs;
+		}));
+
+		Promise.all(Promises).then(function() {
+		
+			var router = new Router().init();
+
+			router.on('/', function () {
+				root.innerHTML = "";
+			});
+
+			router.on('/person', function () {			
+				root.innerHTML = personTemplate.render(Contexts.fernando, Templates);
+			});
+
+			router.on('/company', function () {
+				root.innerHTML = "company";
+			});
+
+			router.on('/employee', function () {
+				root.innerHTML = "employee";
+			});
+		});
+	</script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
-	<script src="fetch-templates.js"></script>
-	<script>		
-		FetchTemplates('layout', 'person', 'company', 'employee').then(tpls=>console.log(tpls));
-	</script>
-
-	<script>
-		var router = new Router().init();
-
-		router.on('/', function () {
-			root.innerHTML = "";
-		});
-
-		router.on('/person', function () {
-			debugger;
-			var layoutSource = layout.import.documentElement.ownerDocument.body.innerText;
-			var layoutTemplate = Hogan.compile(layoutSource);
-
-			var personSource = person.import.documentElement.ownerDocument.body.innerText;
-			var personTemplate = Hogan.compile(personSource);
-
-			var context = {
-				name: 'Fernando'
-				, age: 31
-				, friends: ['Ronald', 'Charles']
-			}
-
-			var partials = {
-				modelo: layoutTemplate
-			}
-
-			var html = personTemplate.render(context, partials);
-			root.innerHTML = html;
-		});
-
-		router.on('/company', function () {
-			root.innerHTML = "company";
-		});
-
-		router.on('/employee', function () {
-			root.innerHTML = "employee";
-		});
-	</script>
-
-	<script>
-		//console.log(layout.import.documentElement.innerHTML);
-	</script>
 </head>
 <body>
 	<div class="container-fluid">

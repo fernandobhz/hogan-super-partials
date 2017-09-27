@@ -1,6 +1,6 @@
 var FetchTemplates = async function() {			
 	var promises = [];
-	var templates = [];
+	var templates = {};
 
 	var fx = function(html) {
 		promises.push(
