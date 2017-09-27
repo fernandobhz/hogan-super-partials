@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script>console.log('I am in layout.html');</script>	
+	<script>console.log('I am in layout.html');</script>
 </head>
 <body>
 <div class="header">
@@ -11,13 +11,15 @@
 				Header
 			{{/ header }}
 		</center>
-	<h1>	
+	<h1>
+</div>
+<hr>
+
+<div class="content">
+	{{$ content }}{{/ content }}
 </div>	
-	<div class="menu"></div>		
-	<div class="content">
-		{{$ content }}{{/ content }}
-	</div>
-	<div style="clear: both"></div>
+
+<hr>
 <div class="footer">
 	<h1>
 		<center>
@@ -25,7 +27,7 @@
 				Footer
 			{{/ footer}}
 		</center>
-	</h1>	
+	</h1>
 </div>
 </body>
 </html>
